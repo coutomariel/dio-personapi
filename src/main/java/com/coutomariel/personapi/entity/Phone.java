@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.coutomariel.personapi.controller.dto.request.PhoneDTO;
 import com.coutomariel.personapi.enums.PhoneType;
 
 import lombok.AllArgsConstructor;
@@ -33,5 +34,9 @@ public class Phone {
 	
 	@Column(nullable = false)
 	private String number;
+
+	public PhoneDTO toDto() {
+		return PhoneDTO.builder().id(id).number(number).type(type).build();
+	}
 	
 }
